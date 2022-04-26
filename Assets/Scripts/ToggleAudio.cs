@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ToggleAudio : MonoBehaviour
 {
@@ -21,7 +20,10 @@ public class ToggleAudio : MonoBehaviour
     if (AudioManager.Instance.Muted)
     {
       AudioManager.Instance.Muted = false;
-      AudioManager.Instance.Unpause();
+      Scene currentScene = SceneManager.GetActiveScene();
+      if (currentScene.name == "Game") {
+        AudioManager.Instance.Unpause();
+      }
     }
     else
     {
