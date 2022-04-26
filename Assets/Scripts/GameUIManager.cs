@@ -24,6 +24,7 @@ public class GameUIManager : MonoBehaviour
   public void GoToMainMenu()
   {
     AudioManager.Instance.Stop();
+    AudioManager.Instance.PlayUIClick();
     SceneManager.LoadSceneAsync("Main Menu", LoadSceneMode.Single);
   }
 

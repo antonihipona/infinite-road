@@ -87,6 +87,7 @@ public class SelectCarUIManager : MonoBehaviour
 
   public void LoadMainMenuScene()
   {
+    AudioManager.Instance.PlayUIClick();
     SceneManager.LoadSceneAsync("Main Menu", LoadSceneMode.Single);
   }
 
@@ -97,6 +98,7 @@ public class SelectCarUIManager : MonoBehaviour
     {
       nextID = 1;
     }
+    AudioManager.Instance.PlayUIClick();
     SetCurrentCar(nextID);
   }
 
@@ -107,6 +109,7 @@ public class SelectCarUIManager : MonoBehaviour
     {
       previousID = GameManager.Instance.GameCars.Length;
     }
+    AudioManager.Instance.PlayUIClick();
     SetCurrentCar(previousID);
   }
 
@@ -124,6 +127,10 @@ public class SelectCarUIManager : MonoBehaviour
     }
     if (isCarOwned) return;
     if (CurrentCar.Price > GameManager.Instance.PlayerGold) return;
+
+    AudioManager.Instance.PlayUIClick();
+    AudioManager.Instance.PlayCoin();
+
     GameManager.Instance.PlayerGold -= CurrentCar.Price;
     List<int> cars = new List<int>(GameManager.Instance.CarsOwned);
     cars.Add(CurrentCar.ID);
@@ -147,6 +154,7 @@ public class SelectCarUIManager : MonoBehaviour
       }
     }
     if (!isCarOwned) return;
+    AudioManager.Instance.PlayUIClick();
     GameManager.Instance.CurrentCar = CurrentCar.ID;
     SaveSystem.SaveGame();
     SetCurrentCar(CurrentCar.ID);

@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
   [SerializeField] private RoadsController _roadsController;
   [SerializeField] private GameUIManager _gameUIManager;
   [SerializeField] private Transform _mesh;
-  [SerializeField] AudioSource _destroyAudio;
 
   private TouchController _touchController;
   private bool _isDead = false;
@@ -161,9 +160,9 @@ public class PlayerController : MonoBehaviour
     if (_isDead) return;
     CurrentHealth -= damage;
     cameraController.Shake(0.25f, intensity);
-    if (crashAudio && !AudioManager.Instance.Muted)
+    if (crashAudio)
     {
-      _destroyAudio.Play();
+      AudioManager.Instance.PlayCrash();
     }
   }
 }

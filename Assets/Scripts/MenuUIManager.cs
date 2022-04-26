@@ -22,11 +22,13 @@ public class MenuUIManager : MonoBehaviour
 
   public void LoadGameScene()
   {
+    AudioManager.Instance.PlayUIClick();
     SceneManager.LoadSceneAsync("Game", LoadSceneMode.Single);
   }
 
   public void LoadSelectCarScene()
   {
+    AudioManager.Instance.PlayUIClick();
     SceneManager.LoadSceneAsync("Select Car", LoadSceneMode.Single);
   }
 
