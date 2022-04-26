@@ -11,10 +11,10 @@ public class RoadsController : MonoBehaviour
   private Obstacle[] _obstaclesPool;
   
   public GameObject CoinPrefab;
+  public GameObject WrenchPrefab;
 
   [SerializeField]
   private GameObject _roadPrefab;
-
 
   public void Move(Vector3 vel)
   {

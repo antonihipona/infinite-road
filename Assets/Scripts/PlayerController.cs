@@ -165,4 +165,9 @@ public class PlayerController : MonoBehaviour
       AudioManager.Instance.PlayCrash();
     }
   }
+
+  public void Heal(float amount) {
+    var newHealth = CurrentHealth + amount;
+    CurrentHealth = Mathf.Clamp(newHealth, 0, MaxHealth);
+  }
 }

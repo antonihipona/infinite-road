@@ -1164,6 +1164,7 @@ MonoBehaviour:
   - {fileID: 813506645643712679, guid: 6c21993079675b142ab2f339720b693f, type: 3}
   - {fileID: 3153320902730454744, guid: 1c6a35dd17900a6428ec42deae45c155, type: 3}
   CoinPrefab: {fileID: 6836753132245344265, guid: 7e59f58fc4359e54d858001aada345b5, type: 3}
+  WrenchPrefab: {fileID: 6836753132245344265, guid: 2d91d0479cb6ba44fae36c73e04fe62b, type: 3}
   _roadPrefab: {fileID: 6620973082550261579, guid: 40879e069bec0d14eb9ad16d1d70e924, type: 3}
 --- !u!1 &579818425
 GameObject:

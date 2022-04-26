@@ -70,8 +70,14 @@ public class Road : MonoBehaviour
     float chance = _roadsController.PlayerController.GameScore / 500;
     bool spawn = Random.Range(0f, 1f) < chance;
     if (spawn) {
-      _roadsController.LastRoad.GetComponent<Road>().CoinOffset = GetNewCoinPosition(_roadsController.LastRoad.GetComponent<Road>().ObstacleOffset);
-      _roadsController.LastRoad.GetComponent<Road>().Coin = Instantiate(_roadsController.CoinPrefab, _roadsController.LastRoad.transform.position + _roadsController.LastRoad.GetComponent<Road>().CoinOffset, Quaternion.identity);
+      // Repair chance
+      bool repairChance = Random.Range(0f, 1f) < 0.1f;
+        _roadsController.LastRoad.GetComponent<Road>().CoinOffset = GetNewCoinPosition(_roadsController.LastRoad.GetComponent<Road>().ObstacleOffset);
+      if (repairChance) {
+        _roadsController.LastRoad.GetComponent<Road>().Coin = Instantiate(_roadsController.WrenchPrefab, _roadsController.LastRoad.transform.position + _roadsController.LastRoad.GetComponent<Road>().CoinOffset, Quaternion.identity);
+      } else {
+        _roadsController.LastRoad.GetComponent<Road>().Coin = Instantiate(_roadsController.CoinPrefab, _roadsController.LastRoad.transform.position + _roadsController.LastRoad.GetComponent<Road>().CoinOffset, Quaternion.identity);
+      }
     }
   }
 
